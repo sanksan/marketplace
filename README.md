@@ -129,15 +129,121 @@ For building and running the application you need:
 - [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Maven 3](https://maven.apache.org)
 
+```shell
 mvn clean install
+```
 
 ## Running the application locally
 
-There are several ways to run a Spring Boot application on your local machine. One way is to execute the `main` method in the `de.codecentric.springbootsample.Application` class from your IDE.
+There are several ways to run a Spring Boot application on your local machine. One way is to execute the `main` method in the `org.marketplace.Application` class from your IDE.
 
 Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html) like so:
 
 ```shell
 mvn spring-boot:run
 ```
+1. User registration 
 
+*Request:*
+POST http://localhost:8080/api/v1/users
+{
+
+	"displayName" : "Sanker S",
+	"username" : "sankers",
+	"description" : "my profile"
+
+}
+
+*Response:*
+{
+    "id": 1,
+    "username": "name2",
+    "apiKey": "06a826f7-5f0f-4c59-8650-46cdb6cea8e5",
+    "displayName": "Sanker S",
+    "description": "my profile"
+}
+
+Verify step:-
+GET http://localhost:8080/api/v1/users
+
+2. Post new project 
+
+*Request:*
+POST http://localhost:8080/api/v1/projects
+{
+	
+	"userId" : "1",
+	"name" : "My amazing project",
+	"description" : "amazing project description",
+	"maxAmount" : 54.45,
+	"startDate" : "2018-04-28T00:32:03Z",
+	"deadline" : "2018-05-29T00:32:03Z"
+}
+*Response:*
+{
+    "id": 1,
+    "name" : "My amazing project",
+	"description" : "amazing project description",
+    "maxAmount": 54.45,
+    "startDate": "2018-04-28T00:32:03Z",
+    "deadline": "2018-05-29T00:32:03Z"
+}
+
+Update project:-
+PUT http://localhost:8080/api/v1/projects/1
+{
+	"userId" : "1",
+	"name" : "name1",
+	"description" : "desc1 modified",
+	"maxAmount" : 1000,
+	"startDate" : "2018-04-28T00:32:03Z",
+	"deadline" : "2018-05-29T00:32:03Z"
+
+}
+
+Get projects:-
+GET http://localhost:8080/api/v1/projects
+
+
+3. Add a Bid
+*Request:*
+POST http://localhost:8080/api/v1/bids
+{
+	"id" : "1",
+	"projectId" : "1",
+	"userId" : "1",
+	"name" : "name1",
+	"description" : "bid1",
+	"bidAmount" : 51
+
+}		
+
+*Response:*
+{
+    "id": 2,
+    "name": "name1",
+    "description": "bid1",
+    "bidAmount": 51,
+    "project": {
+        "id": 1,
+        "name": "name1",
+        "description": "desc1 modified",
+        "maxAmount": 1000,
+        "startDate": "2018-04-28T00:32:03Z",
+        "deadline": "2018-05-29T00:32:03Z",
+        "status": "OPEN"
+    }
+}
+		
+4. When the project deadline is reached, bids are no longer allowed. The bid with lowest amount is selected for implementation. Project status shows BID_COMPLETED at this stage.
+
+
+**Database snapshot - sample**
+![Alt text](/screenshots/h2-snapshot.png?raw=true "Sample H2 snapshot")
+
+##Questionaire
+The time the exercise took (after dev environment is set up) : 5 hours
+Exercise Difficulty: Moderate
+How did you feel about the exercise itself? (1 lowest, 10 highest—awesome way to assess coding ability) - 7
+How do you feel about coding an exercise as a step in the interview process?  (1 lowest, 10 highest—awesome way to assess coding ability) - 7
+What would you change in the exercise and/or process? I think the exercise is a good step to evaluate the design and implementation skills.
