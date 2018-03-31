@@ -20,16 +20,13 @@ The solution for building marketplace for self-employed involves designing and i
 		 In order to avoid scheduling jobs that updates the project that has completed deadlines, it uses the lowest bid field to find the bid that will be awarded the work. This is under the assumption that the lowest bid will be awarded the work and no other post processing tasks (eg. sending emails to the bidder) is needed on project completion. This helps the application to scale better by spawning multiple instances and avoid overhead of scheduling the jobs to update the project tables. Project has a pseudo field for holding the status which is based on the project deadline date.
 
 **Microservices architecture**
-
 	The solution uses microservices architecture in broad sense and does not host separate microservices for projects, bids and users. Such a solution would be recommended if the bid volume exceed few thousands per second. If the system load increases to such a scale, the database joins would pose a bottleneck and we would need to split the APIs into multiple microservices ( Project API, Bid API) and denormalize the database. This would require asynchronous messaging between the services to achieve eventual consistency.
 
 **Patterns**
-
-	The solution uses Front Controller, DTO, Business (Service) delegate, singleton patterns and uses Controller/Service/Repository stereotypes to segregate different layers of the application.
+The solution uses Front Controller, DTO, Business (Service) delegate, singleton patterns and uses Controller/Service/Repository stereotypes to segregate different layers of the application.
 
 **Error Handling**
-
-	The API would return http status code 200 OK for successful operations and include the latest the domain model that was updated. For validation errors, a 400 Bad request will be returned with the details of the fields that need to be corrected. A unhandled request will result in 500 Internal server error. In the error scenarios, a tracking ID will be returned in the response.
+-	The API would return http status code 200 OK for successful operations and include the latest the domain model that was updated. For validation errors, a 400 Bad request will be returned with the details of the fields that need to be corrected. A unhandled request will result in 500 Internal server error. In the error scenarios, a tracking ID will be returned in the response.
 
 ## Non-functional aspects
 
