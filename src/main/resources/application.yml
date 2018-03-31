@@ -1,6 +1,6 @@
 logging:
   level:
-    ROOT: debug
+    ROOT: info
     org.springframework: ERROR
 
 spring:
