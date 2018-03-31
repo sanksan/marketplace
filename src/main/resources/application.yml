@@ -1,0 +1,59 @@
+logging:
+  level:
+    ROOT: debug
+    org.springframework: ERROR
+
+spring:
+  profiles:
+    active: local
+
+---
+
+spring:
+  profiles: unit-test
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:marketplace
+---
+
+spring:
+  profiles: local
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:marketplace
+
+---
+
+spring:
+  profiles: integration-test
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:marketplace
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://dbhost:5432/markd
+
+---
+
+spring:
+  profiles: qa
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://dbhost:5432/markq
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://dbhost:5432/markp
