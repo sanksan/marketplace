@@ -146,6 +146,7 @@ mvn spring-boot:run
 
 *Request:*
 POST http://localhost:8080/api/v1/users
+```
 {
 
 	"displayName" : "Sanker S",
@@ -153,8 +154,9 @@ POST http://localhost:8080/api/v1/users
 	"description" : "my profile"
 
 }
-
+```
 *Response:*
+```
 {
     "id": 1,
     "username": "name2",
@@ -162,6 +164,7 @@ POST http://localhost:8080/api/v1/users
     "displayName": "Sanker S",
     "description": "my profile"
 }
+```
 
 Verify step:-
 GET http://localhost:8080/api/v1/users
@@ -170,7 +173,7 @@ GET http://localhost:8080/api/v1/users
 
 *Request:*
 POST http://localhost:8080/api/v1/projects
-
+```
 {
 	"userId" : "1",
 	"name" : "My amazing project",
@@ -179,9 +182,9 @@ POST http://localhost:8080/api/v1/projects
 	"startDate" : "2018-04-28T00:32:03Z",
 	"deadline" : "2018-05-29T00:32:03Z"
 }
-
+```
 *Response:*
-
+```
 {
     "id": 1,
     "name" : "My amazing project",
@@ -190,12 +193,12 @@ POST http://localhost:8080/api/v1/projects
     "startDate": "2018-04-28T00:32:03Z",
     "deadline": "2018-05-29T00:32:03Z"
 }
-
+```
 Update project:-
 
 *Request:*
 PUT http://localhost:8080/api/v1/projects/1
-
+```
 {
 	"userId" : "1",
 	"name" : "name1",
@@ -203,9 +206,8 @@ PUT http://localhost:8080/api/v1/projects/1
 	"maxAmount" : 1000,
 	"startDate" : "2018-04-28T00:32:03Z",
 	"deadline" : "2018-05-29T00:32:03Z"
-
 }
-
+```
 Get projects:-
 GET http://localhost:8080/api/v1/projects
 
@@ -213,7 +215,7 @@ GET http://localhost:8080/api/v1/projects
 3. Add a Bid
 *Request:*
 POST http://localhost:8080/api/v1/bids
-
+```
 {
 	"id" : "1",
 	"projectId" : "1",
@@ -221,11 +223,10 @@ POST http://localhost:8080/api/v1/bids
 	"name" : "name1",
 	"description" : "bid1",
 	"bidAmount" : 51
-
 }		
-
+```
 *Response:*
-
+```
 {
     "id": 2,
     "name": "name1",
@@ -241,7 +242,8 @@ POST http://localhost:8080/api/v1/bids
         "status": "OPEN"
     }
 }
-		
+```	
+	
 4. When the project deadline is reached, bids are no longer allowed. The bid with lowest amount is selected for implementation. Project status shows BID_COMPLETED at this stage.
 
 
@@ -250,8 +252,8 @@ POST http://localhost:8080/api/v1/bids
 
 ## Questionaire
 
--The time the exercise took (after dev environment is set up) : 5 hours
--Exercise Difficulty: Moderate
--How did you feel about the exercise itself? (1 lowest, 10 highest—awesome way to assess coding ability) - 7
--How do you feel about coding an exercise as a step in the interview process?  (1 lowest, 10 highest—awesome way to assess coding ability) - 7
--What would you change in the exercise and/or process? I think the exercise is a good step to evaluate the design and implementation skills.
+- The time the exercise took (after dev environment is set up) : 5 hours
+- Exercise Difficulty: Moderate
+- How did you feel about the exercise itself? (1 lowest, 10 highest—awesome way to assess coding ability) - 7
+- How do you feel about coding an exercise as a step in the interview process?  (1 lowest, 10 highest—awesome way to assess coding ability) - 7
+- What would you change in the exercise and/or process? I think the exercise is a good step to evaluate the design and implementation skills.
