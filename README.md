@@ -170,8 +170,8 @@ GET http://localhost:8080/api/v1/users
 
 *Request:*
 POST http://localhost:8080/api/v1/projects
+
 {
-	
 	"userId" : "1",
 	"name" : "My amazing project",
 	"description" : "amazing project description",
@@ -179,7 +179,9 @@ POST http://localhost:8080/api/v1/projects
 	"startDate" : "2018-04-28T00:32:03Z",
 	"deadline" : "2018-05-29T00:32:03Z"
 }
+
 *Response:*
+
 {
     "id": 1,
     "name" : "My amazing project",
@@ -190,7 +192,10 @@ POST http://localhost:8080/api/v1/projects
 }
 
 Update project:-
+
+*Request:*
 PUT http://localhost:8080/api/v1/projects/1
+
 {
 	"userId" : "1",
 	"name" : "name1",
@@ -208,6 +213,7 @@ GET http://localhost:8080/api/v1/projects
 3. Add a Bid
 *Request:*
 POST http://localhost:8080/api/v1/bids
+
 {
 	"id" : "1",
 	"projectId" : "1",
@@ -219,6 +225,7 @@ POST http://localhost:8080/api/v1/bids
 }		
 
 *Response:*
+
 {
     "id": 2,
     "name": "name1",
@@ -241,9 +248,10 @@ POST http://localhost:8080/api/v1/bids
 **Database snapshot - sample**
 ![Alt text](/screenshots/h2-snapshot.png?raw=true "Sample H2 snapshot")
 
-##Questionaire
-The time the exercise took (after dev environment is set up) : 5 hours
-Exercise Difficulty: Moderate
-How did you feel about the exercise itself? (1 lowest, 10 highest—awesome way to assess coding ability) - 7
-How do you feel about coding an exercise as a step in the interview process?  (1 lowest, 10 highest—awesome way to assess coding ability) - 7
-What would you change in the exercise and/or process? I think the exercise is a good step to evaluate the design and implementation skills.
+## Questionaire
+
+-The time the exercise took (after dev environment is set up) : 5 hours
+-Exercise Difficulty: Moderate
+-How did you feel about the exercise itself? (1 lowest, 10 highest—awesome way to assess coding ability) - 7
+-How do you feel about coding an exercise as a step in the interview process?  (1 lowest, 10 highest—awesome way to assess coding ability) - 7
+-What would you change in the exercise and/or process? I think the exercise is a good step to evaluate the design and implementation skills.
